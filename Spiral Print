@@ -1,0 +1,57 @@
+import java.util.*;
+public class SpiralPrint {
+
+    public static void spiralPrint(int matrix[][]){
+		int n = matrix.length;
+        if(n<=0){
+            return;
+        }
+        int m = matrix[0].length;
+        
+        int rowStart = 0, rowEnd = n-1, colStart =0, colEnd = m-1;
+        int count =0;
+        while(count<n*m){
+            for(int i=rowStart;i<=colEnd;i++){
+                System.out.print(matrix[rowStart][i]+" ");
+				count++;
+            }
+				rowStart++;
+				for(int i=rowStart;i<=rowEnd;i++){
+				System.out.print(matrix[i][colEnd]+" ");
+				count++;
+				}
+				colEnd--;
+            	for(int i=colEnd; i>=colStart; i--){
+                    System.out.print(matrix[rowEnd][i]+" ");
+					count++;
+                }
+            	rowEnd--;
+				for(int i=rowEnd; i>=rowStart; i--){
+				System.out.print(matrix[i][colStart]+" ");
+				count++;
+				}
+				
+				colStart++;
+            
+        }
+        
+	}
+    
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+	    for(int i =0; i<t; i++){
+	        int n = sc.nextInt();
+	        int m = sc.nextInt();
+	        int[][] mat = new int[n][m];
+	        for(int j=0; j<n;j++){
+	            for(int k =0; k<m; k++){
+	                mat[j][k] = sc.nextInt();
+	            }
+	        }
+	        
+	        spiralPrint(mat);
+	    }
+	}
+
+}
