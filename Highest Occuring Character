@@ -1,0 +1,43 @@
+import java.util.*;
+public class HighestOccuringChar {
+
+	public static char highestOccuringChar(String str) {
+		char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        String s = new String(chars);
+        int len = s.length();
+        int count =1;
+        int max_count = 0;
+        char ans ='_';
+        for(int i=1; i<=len; i++){
+            if(i==len || s.charAt(i)!= s.charAt(i-1)){
+                if(max_count<count){
+                    max_count = count;
+                    ans = s.charAt(i-1);
+                }
+                count=1;
+            }
+            else{
+                count++;
+            }
+        }
+        return ans;
+	}
+	
+	
+	public static void main(String[] args){
+	    
+	    Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+	    
+	    for(int i=0; i<t; i++){
+	        
+	        String str = sc.next();
+	        char c = highestOccuringChar(str);
+	        System.out.print(c);
+	    }
+	    
+	    
+	}
+
+}
