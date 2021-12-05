@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Runner {
+    
+    static BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+   public static String reverseEachWord(String str) {
+		int len = str.length();
+        String s ="";
+        String p = "";
+       String[] ans = str.split(" ");
+        for(int i=0; i<ans.length; i++){
+         char[] chars = ans[i].toCharArray();
+        char prev = 0;
+        int k = 0;
+        for(int j=0; j<chars.length;j++){
+            s = chars[j]+s;
+        }
+        p = p + s+ " ";
+
+        s= "";
+        
+        }
+         return p;
+	}
+
+
+	
+
+	public static void main (String [] args) throws NumberFormatException, IOException {
+		String str = br.readLine();
+		if (str != null) {
+			str = str.trim ();
+		} else {
+			str = "";
+		}
+
+		String ans = reverseEachWord(str);
+
+		System.out.println(ans);
+		
+	}
+}
