@@ -1,0 +1,59 @@
+import java.util.*;
+public class ArrayEquilibriumIndex {
+    
+  public static int arrayEquilibriumIndex(int[] arr){  
+		
+        int len = arr.length;
+        if(len<=0){
+            return -1;
+        }
+        int right = 0;
+        int left = 0;
+        int eq = -1, sum=0;
+        int mid = 0;
+       for(int i=0; i<len;i++){
+          sum +=arr[i];
+       }
+        while(mid<len){
+            if(mid == 0){
+                left =0;
+                right = sum - arr[mid];
+            }
+            else{
+                left += arr[mid-1];
+                right = right- arr[mid];
+            }
+            
+            if(left == right){
+                eq = mid;
+                break;
+            }
+            else if(left>right){
+                break;
+            }
+            mid++;
+        }
+        return eq;
+        
+	}
+    
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+	   
+	    for(int i =0; i<t; i++){
+	       int n = sc.nextInt();
+	       int[] arr = new int[n];
+	       for(int j=0;j<n;j++){
+	           arr[j] = sc.nextInt();
+	       }
+	        
+	        int k = arrayEquilibriumIndex(arr);
+	        System.out.print(k);
+	        }
+	        
+	        
+	    }
+	
+
+}
