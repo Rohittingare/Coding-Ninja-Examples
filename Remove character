@@ -1,0 +1,10 @@
+	public static String removeAllOccurrencesOfChar(String str, char ch) {
+		int len = str.length();
+        String ans = "";
+        for(int i=0; i<len;i++){
+            if(str.charAt(i)!=ch){
+                ans = ans + str.charAt(i);
+            }
+        }
+        return ans;
+	}
