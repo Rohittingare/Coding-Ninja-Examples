@@ -1,0 +1,39 @@
+import java.util.*;
+public class FirstIndex {
+	
+public static int firstIndex(int input[], int x) {
+		if(input.length==1){
+            if(input[0]!=x){
+                return -1;
+            }
+            
+        }
+        if(input[0]==x){
+            return 0;
+        }
+        int arr[] = new int[input.length-1];
+        for(int i=1; i<input.length; i++){
+            arr[i-1]= input[i];
+        }
+        int index = firstIndex(arr,x);
+        if(index == -1){
+            return -1;
+        }else{
+            return ++index;
+        }
+		
+	}
+	
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	   // print(n);
+	   int arr[] = new int[n];
+	   for(int i =0; i<n; i++){
+	       arr[i] = sc.nextInt();
+	   }
+	   int x = sc.nextInt();
+	   System.out.print(firstIndex(arr,x));
+	}
+
+}
