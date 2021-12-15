@@ -1,0 +1,25 @@
+import java.util.*;
+public class FindGeometricSum {
+	
+ public static double findGeometricSum(int k){
+        
+		
+        if(k==0){
+            return 1.00000;
+        }
+        double pow = Math.pow(2,k);
+        double sum = (1/pow)+ findGeometricSum(k-1);
+        return sum;
+
+	}
+
+
+	
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	   
+	  System.out.println(findGeometricSum(n));
+	}
+
+}
