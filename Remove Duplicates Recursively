@@ -1,0 +1,29 @@
+import java.util.*;
+public class RemoveConsecutiveDuplicates {
+	
+public static String removeConsecutiveDuplicates(String s) {
+			String smallOutput = "";
+        if(s.length()<=1){
+            return s;
+        }
+        if(s.charAt(0)!=s.charAt(1)){
+           smallOutput = s.charAt(0)+ removeConsecutiveDuplicates(s.substring(1)); 
+            
+        }
+        else{
+            s = s.substring(1);
+            smallOutput = removeConsecutiveDuplicates(s);
+        }
+		return smallOutput;
+	}
+
+
+	
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    String n = sc.next();
+	   
+	   System.out.print(removeConsecutiveDuplicates(n));
+	}
+
+}
