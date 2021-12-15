@@ -1,0 +1,24 @@
+import java.util.*;
+public class IsStringPalindrome {
+	
+ public static boolean isStringPalindrome(String s) {
+	if(s.length()<=1){
+        return true;
+    }
+        
+        if(s.charAt(0)==s.charAt(s.length()-1)){
+            return isStringPalindrome(s.substring(1,s.length()-1));
+        }
+	return false;
+	}
+
+
+	
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    String n = sc.next();
+	   
+	  System.out.println(isStringPalindrome(n));
+	}
+
+}
