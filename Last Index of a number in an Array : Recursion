@@ -1,0 +1,36 @@
+import java.util.*;
+public class LastIndex {
+	
+public static int lastIndex(int input[], int x) {
+		
+        if(input.length == 0){
+            return -1;
+        }
+        if(input[input.length-1] == x){
+            int lastIndex = input.length-1;
+            return lastIndex;
+        }
+         int arr[] = new int[input.length-1];
+        for(int i=0; i<input.length-1; i++){
+            arr[i]= input[i];
+        }
+        int lastIndex = lastIndex(arr,x);
+        return lastIndex;
+        
+        
+        
+	}
+	
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	   // print(n);
+	   int arr[] = new int[n];
+	   for(int i =0; i<n; i++){
+	       arr[i] = sc.nextInt();
+	   }
+	   int x = sc.nextInt();
+	   System.out.print(firstIndex(arr,x));
+	}
+
+}
