@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class AddStars {
+
+
+public static String addStars(String s) {
+		
+        if(s == null || s.length()==1){
+            return s;
+        }
+       
+        char ch = s.charAt(0);
+        String str = addStars(s.substring(1));
+        if(ch==str.charAt(0)){
+            str = ch+"*"+str;
+        }else{
+            str = ch+str;
+        }
+        return str;
+
+	}
+
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		System.out.println(addStars(input));
+	}
+}
