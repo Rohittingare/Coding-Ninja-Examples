@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class ConvertStringToInt {
+    
+    public static int convertStringToInt(String n){
+		
+        if(n.length() == 1){
+            
+            return (int)n.charAt(n.length()-1)-'0';
+        }
+        int num = (int)(n.charAt(n.length()-1))-'0';
+    
+        num = num + convertStringToInt(n.substring(0,n.length()-1))*10 ;
+        
+        return num;
+	}
+    
+    
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		System.out.println(convertStringToInt(input));
+	}
+}
