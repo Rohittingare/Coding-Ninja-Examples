@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class CheckAB {
+
+	public static boolean checkAB(String s) {
+		
+     if(s.length() == 0){
+         return true;
+     }
+        if(s.charAt(0) == 'a'){
+            if(s.substring(1).length() > 1 && s.substring(1,3).equals("bb")){
+                return checkAB(s.substring(3));
+            }else{
+                return checkAB(s.substring(1));
+            }
+        }
+        return false;
+        
+        
+	}
+}
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.next();
+		System.out.println(Solution.checkAB(input));
+	}
+
+}
