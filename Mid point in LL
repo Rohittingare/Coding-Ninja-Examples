@@ -1,0 +1,78 @@
+import java.util.*;
+class Node<T> {
+    T data;
+    Node<T> next;
+    public Node (T data){
+        this.data = data;
+    } 
+}
+
+public class MidPoint {
+    
+    public static void printLL(Node<Integer> head){
+        
+        while(head != null){
+            System.out.print(head.data+" ");
+            head = head.next;
+        }
+    }
+    
+     public static Node<Integer> midPoint(Node<Integer> head) {
+       
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node<Integer> slow = head;
+        Node<Integer> fast = head;
+        
+        while( fast.next != null){
+            if(fast.next.next==null){
+                break;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    
+    public static Node<Integer> reverseRec(Node<Integer> head){
+        
+        if(head == null || head.next == null){
+            return head;
+        }
+        
+            Node<Integer> smallHead = reverseRec(head.next);
+            Node<Integer> tail = head.next;
+            tail.next = head;
+            head.next = null;
+            return smallHead;
+        
+        
+    }
+    
+    public static void main(String[] args){
+        
+        Scanner sc = new Scanner(System.in);
+        Node<Integer> head =null;
+        Node<Integer> tail= null;
+         int n = sc.nextInt();
+         
+        while(n!=-1){
+           Node<Integer> node = new Node<Integer>(n);
+           if(head == null){
+               head = node;
+               tail = node;
+           }
+           else{
+               tail.next = node;
+               tail = node;
+           }
+            n = sc.nextInt();
+        }
+        head = midPoint(head);
+        System.out.print(head.data);
+        // printLL(head);
+        
+    }
+}
